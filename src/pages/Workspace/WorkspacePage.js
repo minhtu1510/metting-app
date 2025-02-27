@@ -30,8 +30,7 @@ export const WorkspacePage = () => {
                     <div className="workSpace_content--introAdd">
                         <div className="workSpace_content--introAddItem">
                             <i class="fa-solid fa-plus"></i>
-
-                            Tạo thư mục
+                            Tạo cuộc họp
                         </div>
                         <div className="workSpace_content--introAddItem">
                             <i class="fa-solid fa-file-circle-plus"></i>Thêm tệp
