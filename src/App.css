@@ -1,0 +1,406 @@
+.MenuBar {
+  width: 230px;
+  height: 100%;
+  border-right: 1px solid #dddd;
+  position: fixed;
+}
+
+
+
+.MenuBar .MenuBar__header {
+  padding: 10px 0;
+  border: 1px solid #dddd;
+  margin: 5px;
+  border-radius: 8px;
+}
+
+.MenuBar .MenuBar__infoUser {
+  border-bottom: 1px solid #dddd;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 5px;
+  padding: 0 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 5px;
+}
+
+.MenuBar .MenuBar__infoUser--image img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.Main {
+  margin-left: 300px;
+}
+
+.MenuBar .MenuBar__infoUser--setting {
+  cursor: pointer;
+}
+
+.MenuBar .MenuBar__Workspace {
+  padding: 6px 10px;
+}
+
+.MenuBar .MenuBar__Workspace i {
+  margin-right: 8px;
+  font-size: 20px;
+}
+
+/* 2563EB */
+.MenuBar__nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+}
+
+.MenuBar__nav ul li {
+  padding: 10px 20px;
+  margin-bottom: 5px;
+}
+
+.MenuBar__nav ul li:hover {
+  background-color: #EFF6FF;
+
+}
+
+.MenuBar__nav ul li:hover a {
+  color: #2563EB;
+}
+
+.MenuBar__nav ul li a {
+  text-decoration: none;
+  color: #6B7280;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.MenuBar__nav ul li i {
+  font-size: 20px;
+  margin-right: 20px;
+  width: 15px;
+  height: 15px;
+}
+
+/* .MenuBar__nav ul li a.active {
+  color: #2563EB;
+
+} */
+/*-=======WorkSpace==========*/
+.workSpace .workSpace_header {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 25px;
+  border-bottom: 1px solid #dddd;
+}
+
+.workSpace .workSpace_header--userRole img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.workSpace .workSpace_header--names {
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+}
+
+.workSpace .workSpace_header--names i {
+  color: #1c1b1b3e;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 18px;
+  margin-left: 6px;
+}
+
+.workSpace .workSpace_header--user {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.workSpace .workSpace_header--userRole {
+  display: flex;
+  align-items: center;
+}
+
+.workSpace .workSpace_header--userRole i {
+  color: #1c1b1b3e;
+  cursor: pointer;
+  font-size: 18px;
+  margin-left: 6px;
+}
+
+.workSpace .workSpace_header--userAdd {
+  background-color: #2563EB;
+  color: white;
+  font-size: 16px;
+  padding: 8px 10px;
+  font-weight: 500;
+  border-radius: 8px;
+}
+
+.workSpace .workSpace_header--userAdd i {
+  margin-right: 8px;
+}
+
+.workSpace .workSpace_content {
+  padding: 30px 0;
+}
+
+.workSpace .workSpace_content--intro {
+  display: flex;
+  justify-content: space-between;
+
+}
+
+.workSpace .workSpace_content--introTitle {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.workSpace .workSpace_content--introAdd {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.workSpace .workSpace_content--introAddItem {
+  width: 120px;
+  padding: 10px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  /* display: flex;
+  align-items: center; */
+}
+
+.workSpace .workSpace_content--introAddItem i {
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.workSpace .workSpace_content--in {
+  padding: 20px 0;
+  /* display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap; */
+  width: 100%;
+  height: 100%;
+}
+
+.workSpace .workSpace_content--LoadFile {
+  background-color: #2563EB;
+  color: white;
+  font-size: 16px;
+  padding: 8px 10px;
+  font-weight: 500;
+  border-radius: 8px;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+/*======================file Audio====================*/
+.FileAudio {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 20px; */
+  border-right: 1px solid #dddd;
+}
+
+.FileAudio .FileAudio__header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.FileAudio .FileAudio__listAudio {
+  width: 70%;
+}
+
+.FileAudio .FileAudio__header--Title_Filter {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.FileAudio .FileAudio__header--Title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.FileAudio .FileAudio__header--Filter {
+  color: #2563EB;
+  border: 1px solid #2563EB;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.FileAudio .FileAudio__header--Filter i {
+  font-size: 14px;
+}
+
+.FileAudio .FileAudio__header--AddFolder {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.FileAudio .FileAudio__search {
+  position: relative;
+}
+
+.FileAudio .FileAudio__search input {
+
+  width: 97%;
+  padding: 6px;
+  border: 1px solid #dddd;
+  border-radius: 6px;
+}
+
+.FileAudio .FileAudio__search i {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  color: #7a7272dd;
+  cursor: pointer;
+}
+
+.FileAudio .FileAudio__content table {
+  padding: 10px;
+  width: 100%;
+}
+
+.FileAudio .FileAudio__content table tr,
+th,
+td {
+  padding: 6px;
+}
+
+.FileAudio .FileAudio__content table tr {
+  border-bottom: 1px solid #dddd;
+
+}
+
+.FileAudio .FileAudio__content table tr,
+td {
+  text-align: center;
+}
+
+.FileAudio .FileAudio__record {
+  padding: 50px;
+  border-left: 1px solid #dddd;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 200px;
+  padding-left: 20px;
+}
+
+.FileAudio .FileAudio__record--title {
+  font-size: 16px;
+  font-weight: 600;
+  width: 100%;
+}
+
+.FileAudio .FileAudio__record img {
+  width: 220px;
+  height: 130px;
+}
+
+.FileAudio .FileAudio__record__item {
+  background-color: #EFF6FF;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.FileAudio .FileAudio__record__item:hover {
+  border: 1.5px solid #2563EB;
+}
+
+.Audio .listAudio {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/*=========================Record=====================*/
+.AudioRecorder {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.AudioRecorder .recordAudio {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 140px;
+}
+
+.AudioRecorder .FileAudio__record a {
+  text-decoration: none;
+}
+
+.AudioRecorder .recordAudio img {
+  width: 80%;
+}
+
+.AudioRecorder .buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  position: absolute;
+  padding: 20px;
+  bottom: 70px;
+  left: 24%;
+}
+
+.AudioRecorder button {
+  padding: 8px 10px;
+  width: 100px;
+}
+
+.AudioRecorder .recordings-list {
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px
+}
+
+.FileUpload .FileUpload__up {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-left: 140px;
+}
+
+.FileUpload .FileUpload__up img {
+  width: 60%;
+  height: 500px;
+}
+
+.FileUpload .FileUpload__up input {
+  position: absolute;
+  bottom: 0;
+  right: 48%;
+}
