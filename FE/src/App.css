@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 .MenuBar {
   width: 230px;
   height: 100%;
@@ -135,7 +136,7 @@
   margin-left: 6px;
 }
 
-.workSpace .workSpace_header--userAdd {
+.workSpace .workSpace_header--mergeFile {
   background-color: #2563EB;
   color: white;
   font-size: 16px;
@@ -144,8 +145,18 @@
   border-radius: 8px;
 }
 
-.workSpace .workSpace_header--userAdd i {
+.workSpace .workSpace_header--mergeFile i {
   margin-right: 8px;
+}
+
+.workSpace .workSpace_header--refresh{
+  border: 0;
+  background-color: white;
+}
+
+.workSpace .workSpace_header--refresh i {
+  color: #2563EB;
+  font-size: 24px;
 }
 
 .workSpace .workSpace_content {
@@ -177,8 +188,21 @@
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
+  margin-right: 20px;
+  color: black;
   /* display: flex;
   align-items: center; */
+}
+.workSpace .workSpace_content--introAddItem a{
+  text-decoration: none;
+  color: black;
+}
+.workSpace .workSpace_content--introAddItem:hover a{
+  color: white;
+}
+
+.workSpace .workSpace_content--introAddItem:hover {
+  background-color: #2563EB;
 }
 
 .workSpace .workSpace_content--introAddItem i {
@@ -259,6 +283,10 @@
   border-radius: 6px;
   font-size: 16px;
   cursor: pointer;
+}
+.FileAudio .FileAudio__header--AddFolder:hover {
+  background-color: #2563EB;
+  color: white;
 }
 
 .FileAudio .FileAudio__search {
@@ -404,3 +432,121 @@ td {
   bottom: 0;
   right: 48%;
 }
+
+/* Thêm mới cuộc họp */
+
+.form  {
+  font-family: "Be Vietnam", sans-serif;
+  width: 700px;
+  
+}
+
+.form .create-meeting {
+  font-size: 48px;
+  font-weight: 700;
+  color: #3662E3;
+
+}
+
+.form .form-group {
+  margin-top: 20px;
+}
+
+.form .form-group input{
+  border: 0;
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  width: 100%;
+  margin :10px 0;
+  padding: 20px;
+  font-size: 15px;
+  outline: none;
+}
+
+.form .form-group label {
+  font-size: 18px;
+  font-weight: 700;
+}
+.form .form-group textarea {
+  width: 100%;
+  margin-top: 10px;
+  height: 200px;
+  border: 1px solid #dddd;
+  border-radius: 5px;
+  font-size: 20px;
+}
+
+.form .form-group button{
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-top: 20px;
+  background-color: aquamarine;
+}
+
+.form .form-group button:hover{
+  background-color: #3662E3;
+  color: white;
+  border: 0;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+
+/* Hết Thêm mới cuộc họp */
+
+/* Quản lý người dùng  */
+.FileAudio table{
+  border-collapse: collapse;
+}
+.FileAudio table tbody tr:hover {
+  background-color: #EFF6FF;
+  cursor: pointer;
+
+
+}
+
+.FileAudio table tbody tr:hover .play-btn{
+  display: inline;
+  
+}
+
+.FileAudio table tbody .play-btn{
+  display: none;
+  background-color: #E5E5E5;
+  color: black;
+  border: none;
+  padding: 4px ;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 10px;
+}
+.FileAudio .btn{
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.FileAudio .btn.btn-edit{
+  background-color: #EBAD3E;
+  color: white;
+}
+
+.FileAudio .btn.btn-delete{
+  background-color: #DE575E;
+  color: white;
+}
+.FileAudio tbody .audio{
+  width: 100%;
+  display: block;
+}
+
+.FileAudio tbody tr .audio-row{
+  border-top: 0;
+}
+/* Hết Quản lý người dùng  */

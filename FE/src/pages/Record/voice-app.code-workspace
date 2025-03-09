@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "../../../.."
+		},
+		{
+			"path": "E:/Ổ F/product-management-master"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "product-management-master"
+	}
+}

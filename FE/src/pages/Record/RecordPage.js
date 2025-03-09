@@ -1,81 +1,67 @@
-
 import { useState, useRef } from "react";
-import microphone from "../../assets/images/microphone-only.svg"
+
 export const RecordPage = () => {
-  const [recordings, setRecordings] = useState([]); // Lưu danh sách file ghi âm
-  const [isRecording, setIsRecording] = useState(false);
-  const mediaRecorderRef = useRef(null);
-  const audioChunksRef = useRef([]);
+  const [recording, setRecording] = useState(false);
+  const mediaRecorder = useRef(null);
+  const audioChunks = useRef([]);
 
   const startRecording = async () => {
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-      const mediaRecorder = new MediaRecorder(stream);
-      mediaRecorderRef.current = mediaRecorder;
-      audioChunksRef.current = [];
+    const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
 
-      mediaRecorder.ondataavailable = (event) => {
-        audioChunksRef.current.push(event.data);
-      };
+    // Chỉ định `audio/webm` vì `audio/wav` KHÔNG HỖ TRỢ
+    mediaRecorder.current = new MediaRecorder(stream, { mimeType: "audio/webm" });
 
-      mediaRecorder.onstop = () => {
-        const blob = new Blob(audioChunksRef.current, { type: "audio/ogg; codecs=opus" });
-        const audioUrl = URL.createObjectURL(blob); // Tạo URL tạm thời
-        const newRecording = {
-          id: Date.now(), // Tạo ID giả
-          name: `Ghi âm ${recordings.length + 1}`,
-          url: audioUrl,
-        };
+    mediaRecorder.current.ondataavailable = (event) => {
+      if (event.data.size > 0) {
+        audioChunks.current.push(event.data);
+        sendPartialData(event.data);
+      }
+    };
 
-        setRecordings((prev) => [...prev, newRecording]); // Cập nhật danh sách
-      };
-
-      mediaRecorder.start();
-      setIsRecording(true);
-    } catch (err) {
-      console.error("❌ Error accessing microphone", err);
-    }
+    mediaRecorder.current.start(3000); // Cắt file mỗi 3 giây
+    setRecording(true);
   };
 
   const stopRecording = () => {
-    if (mediaRecorderRef.current) {
-      mediaRecorderRef.current.stop();
-      setIsRecording(false);
+    if (mediaRecorder.current) {
+      mediaRecorder.current.stop();
+      setRecording(false);
     }
+
+    // Gửi phần còn lại nếu có
+    setTimeout(() => {
+      if (audioChunks.current.length > 0) {
+        console.log("Gửi phần còn lại...");
+        sendPartialData(audioChunks.current[audioChunks.current.length - 1]);
+        audioChunks.current = [];
+      }
+    }, 500);
   };
 
-  const deleteRecording = (id) => {
-    setRecordings((prev) => prev.filter((rec) => rec.id !== id));
+  const sendPartialData = (audioBlob) => {
+    if (!audioBlob) return;
+    
+    const formData = new FormData();
+    formData.append("file", audioBlob, "partial_audio.webm");  // Lưu file dưới dạng .webm
+
+    fetch("http://localhost:8000/api/audio/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((data) => console.log("Đã gửi phần âm thanh:", data))
+      .catch((error) => console.error("Lỗi gửi audio:", error));
   };
 
   return (
-    <div className="AudioRecorder">
-      <div className="recordAudio">
-        <img src={microphone} alt="mic"/>
-        <div className="buttons">
-          <button onClick={startRecording} disabled={isRecording} style={{ background: isRecording ? "red" : "" }}>
-            Record
-          </button>
-          <button onClick={stopRecording} disabled={!isRecording}>
-            Stop
-          </button>
-        </div>
-      </div>
-
-      {/* Danh sách file ghi âm */}
-      <div className="recordings-list">
-        {recordings.length === 0 ? (
-          <p>Chưa có bản ghi âm nào.</p>
-        ) : (
-          recordings.map((rec) => (
-            <div key={rec.id} className="clip">
-              <audio controls src={rec.url}></audio>
-              <p>{rec.name}</p>
-              <button onClick={() => deleteRecording(rec.id)}>🗑️ Delete</button>
-            </div>
-          ))
-        )}
-      </div>
+    <div>
+      {!recording ? (
+        <button onClick={startRecording}>Bắt đầu ghi âm</button>
+      ) : (
+        <button onClick={stopRecording}>Dừng ghi âm</button>
+      )}
     </div>
   );
 };
+
+

@@ -27,17 +27,14 @@ export const MenuBar = () => {
                 <nav className="MenuBar__nav">
                     <ul>
                         <li>
-                            <NavLink to="/"><i class="fa-solid fa-table-list"></i> Bảng điều khiển</NavLink>
+                            <NavLink to="/"><i class="fa-solid fa-table-list"></i> Quản lý cuộc họp</NavLink>
        
                         </li>
                         <li>
-                            <NavLink to="/fileAudio"> <i class="fa-solid fa-file-invoice"></i> Các tập tin</NavLink>
+                            <NavLink to="/user"> <i class="fa-solid fa-user"></i> Quản lý người dùng</NavLink>
                         </li>
                         <li>
-                            <NavLink><i class="fa-solid fa-note-sticky"></i> Ghi chú</NavLink>
-                        </li>
-                        <li>
-                            <NavLink><i class="fa-solid fa-calendar-days"></i> Lịch</NavLink>
+                            <NavLink to="/word"><i class="fa-solid fa-note-sticky"></i> Quản lý văn bản</NavLink>
                         </li>
                     </ul>
                 </nav>

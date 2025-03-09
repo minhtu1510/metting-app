@@ -1,9 +1,10 @@
 import fileRecord from "../../assets/images/files-record.jpg"
 import fileUpload from "../../assets/images/files-upload.jpg"
 import {Link } from "react-router-dom"
+import React from "react"
 // import imageUpload from "../../assets/images/image_upload.jpg"
 // import recordImg from "../../assets/images/microphone-only.svg"
-export const FileAudioPage = () => {
+export const UserPage = () => {
     // const handleClickUpload = () => {
     //     const body = document.querySelector("body");
     //     const elementRecord = document.createElement("div")
@@ -39,10 +40,9 @@ export const FileAudioPage = () => {
                     <div className="FileAudio__header">
                             <div className="FileAudio__header--Title_Filter"> 
                             <div className="FileAudio__header--Title">Tệp gần đây</div>  
-                            <div className="FileAudio__header--Filter"><i class="fa-solid fa-plus"></i> Thêm bộ lọc</div>  
                             </div>
                             <div className="FileAudio__header--AddFolder"> 
-                                <i class="fa-solid fa-plus"></i> Tạo thư mục
+                                <i class="fa-solid fa-plus"></i> Thêm thư mục
                             </div>
                             
                     </div> 
@@ -57,26 +57,36 @@ export const FileAudioPage = () => {
                                         <th><input type="checkbox"/></th>
                                         <th>Tên</th>
                                         <th>Tạo</th>
-                                        <th>Dịch vụ</th>
+                                        <th>Cấp bậc</th>
+                                        <th>Chức vụ</th>
                                         <th>
-                                            <i class="fa-solid fa-plus"></i>
-                                           
-                                        </th>
-                                        <th>
-                                            
-                                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                                            Tác vụ
                                         </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input type="checkbox"/></td>
-                                        <td>Recording - 18</td>
-                                        <td>12/12/2025</td>
-                                        <td>Phiên mã</td>
-                                        <td></td>
-                                        <td><i class="fa-solid fa-ellipsis-vertical"></i></td>
-                                    </tr>
+                                    <React.Fragment>
+                                        <tr>
+                                            <td><button class="play-btn">▶</button><input type="checkbox"/></td>
+                                            <td>Nguyễn Văn A</td>
+                                            <td>12/12/2025</td>
+                                            <td>Thượng úy</td>
+                                            <td>Chủ nhiệm chính trị</td>
+                                            <td>
+                                                <button class= "btn btn-edit">Sửa</button>
+                                                <button class= "btn btn-delete">Xóa</button>
+                                            </td>
+                                            <tr>
+                                                <td colSpan="6" className="audio-row">
+                                                    <audio controls autoPlay className="audio">
+                                                        <source src="" type="audio/mp3" />
+                                                        Trình duyệt không hỗ trợ audio
+                                                    </audio>
+                                                </td>
+                                            </tr>
+                                        </tr>
+                                    </React.Fragment>
+
                                 </tbody>
                             </table>
                         </div>

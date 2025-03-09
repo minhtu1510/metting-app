@@ -1,5 +1,5 @@
-import imageUser from "../../assets/images/imageUser.jpg";
 import tableEmpty from "../../assets/images/table-empty.svg";
+import { NavLink } from "react-router-dom"
 export const WorkspacePage = () => {
     return (
         <>
@@ -7,19 +7,18 @@ export const WorkspacePage = () => {
             <div className="workSpace_header">
                 <div className="workSpace_header--names">
                     <div className="workSpace_header--name">
-                        y 
+                        Quản lý cuộc họp
                     </div>
-                    <i class="fa-solid fa-angle-down"></i>
                 </div>
                 <div className="workSpace_header--user">
-                    <div className="workSpace_header--userRole">
-                       <img src={imageUser} alt="anh"/>
-                       <i class="fa-solid fa-angle-down"></i>
-                    </div>
-                    <div className="workSpace_header--userAdd">
+                    <div className="workSpace_header--mergeFile">
                         <i class="fa-solid fa-user-plus"></i>
-                        Mời thành viên
+                        Gộp file
                     </div>
+                    <button className="workSpace_header--refresh">
+                    <i class="fa-solid fa-repeat"></i>
+                    </button>
+
                 </div>
             </div>
             <div className="workSpace_content">
@@ -29,11 +28,8 @@ export const WorkspacePage = () => {
                     </div>
                     <div className="workSpace_content--introAdd">
                         <div className="workSpace_content--introAddItem">
-                            <i class="fa-solid fa-plus"></i>
-                            Tạo cuộc họp
-                        </div>
-                        <div className="workSpace_content--introAddItem">
-                            <i class="fa-solid fa-file-circle-plus"></i>Thêm tệp
+                            <NavLink to="/meeting/create"><i class="fa-solid fa-plus"></i>
+                            Tạo cuộc họp</NavLink>
                         </div>
                     </div>
                 </div>

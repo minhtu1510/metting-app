@@ -1,5 +1,5 @@
 import imageUpload from "../../assets/images/image_upload.jpg"
-export const FileUploadPage = () => {
+export const WordPage = () => {
     return (
     <>
         <div className="FileUpload">
