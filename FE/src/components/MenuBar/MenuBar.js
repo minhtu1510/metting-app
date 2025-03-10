@@ -27,7 +27,7 @@ export const MenuBar = () => {
                 <nav className="MenuBar__nav">
                     <ul>
                         <li>
-                            <NavLink to="/"><i class="fa-solid fa-table-list"></i> Quản lý cuộc họp</NavLink>
+                            <NavLink to="/workspace"><i class="fa-solid fa-table-list"></i> Quản lý cuộc họp</NavLink>
        
                         </li>
                         <li>

@@ -463,6 +463,18 @@ td {
   outline: none;
 }
 
+.form .form-group select{
+  border: 0;
+  background-color: #F5F5F5;
+  border-radius: 5px;
+  width: 100%;
+  margin :10px 0;
+  padding: 20px;
+  font-size: 15px;
+  outline: none;
+}
+
+
 .form .form-group label {
   font-size: 18px;
   font-weight: 700;
@@ -482,11 +494,12 @@ td {
   padding: 10px 20px;
   font-size: 20px;
   margin-top: 20px;
-  background-color: aquamarine;
+  background-color: #2A579A;
+  color: white;
 }
 
 .form .form-group button:hover{
-  background-color: #3662E3;
+  background-color: #3E6DB6;
   color: white;
   border: 0;
   border-radius: 5px;
@@ -550,3 +563,61 @@ td {
   border-top: 0;
 }
 /* Hết Quản lý người dùng  */
+
+/* Đăng nhập */
+.login{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login .form {
+  font-family: "Be Vietnam Pro", sans-serif;
+  color: #1B2334;
+  width: 550px;
+  border: 1px solid #EEEEEE;
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+
+.login .form input{
+  margin-bottom: 30px;
+  width: 100%;
+  height: 60px;
+  font-size: 16px;
+  border-radius: 8px;
+  border:0;
+  background-color:#F5F5F5 ;
+  padding: 10px 20px;
+  font-weight: 400;
+}
+
+.login .form input[type="checkbox"]{
+  width: auto;
+  height: auto;
+}
+.login .title{
+  font-size: 36px;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.login .form button{
+  width: 100%;
+  height: 60px;
+  font-size: 16px;
+  border-radius: 8px;
+  border:0;
+  background-color:#525fe1 ;
+  padding: 10px 20px;
+  font-weight: 700;
+  color: white;
+  cursor: pointer;
+}
+
+.login .form button:hover{
+  background-color: #221F3E;
+}
+/* Hết đăng nhập */
