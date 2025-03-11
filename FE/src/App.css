@@ -143,6 +143,7 @@
   padding: 8px 10px;
   font-weight: 500;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .workSpace .workSpace_header--mergeFile i {
@@ -152,6 +153,7 @@
 .workSpace .workSpace_header--refresh{
   border: 0;
   background-color: white;
+  cursor: pointer;
 }
 
 .workSpace .workSpace_header--refresh i {
@@ -621,3 +623,161 @@ td {
   background-color: #221F3E;
 }
 /* Hết đăng nhập */
+
+
+/* Quản lý người dùng */
+.AccountsPage {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 20px; */
+  border-right: 1px solid #dddd;
+}
+
+.AccountsPage .AccountsPage__header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AccountsPage .AccountsPage__listAudio {
+  width: 70%;
+}
+
+.AccountsPage .AccountsPage__header--Title_Filter {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.AccountsPage .AccountsPage__header--Title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.AccountsPage .AccountsPage__header--Filter {
+  color: #2563EB;
+  border: 1px solid #2563EB;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.AccountsPage .AccountsPage__header--Filter i {
+  font-size: 14px;
+}
+
+.AccountsPage .AccountsPage__header--AddAccount {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.AccountsPage .AccountsPage__header--AddAccount:hover {
+  background-color: #2563EB;
+  color: white;
+}
+
+.AccountsPage .AccountsPage__search {
+  position: relative;
+}
+
+.AccountsPage .AccountsPage__search input {
+
+  width: 97%;
+  padding: 6px;
+  border: 1px solid #dddd;
+  border-radius: 6px;
+}
+
+.AccountsPage .AccountsPage__search i {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  color: #7a7272dd;
+  cursor: pointer;
+}
+
+.AccountsPage .AccountsPage__content table {
+  padding: 10px;
+  width: 100%;
+}
+
+.AccountsPage .AccountsPage__content table tr,
+th,
+td {
+  padding: 6px;
+}
+
+.AccountsPage .AccountsPage__content table tr {
+  border-bottom: 1px solid #dddd;
+
+}
+
+.AccountsPage .AccountsPage__content table tr,
+td {
+  text-align: center;
+}
+.AccountsPage table{
+  border-collapse: collapse;
+}
+.AccountsPage table tbody tr:hover {
+  background-color: #EFF6FF;
+  cursor: pointer;
+
+
+}
+
+.AccountsPage table tbody tr:hover .play-btn{
+  display: inline;
+  
+}
+
+.AccountsPage table tbody .play-btn{
+  display: none;
+  background-color: #E5E5E5;
+  color: black;
+  border: none;
+  padding: 4px ;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 10px;
+}
+.AccountsPage .btn{
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.AccountsPage .btn.btn-edit{
+  background-color: #EBAD3E;
+  color: white;
+}
+
+.AccountsPage .btn.btn-delete{
+  background-color: #DE575E;
+  color: white;
+}
+.AccountsPage .btn.btn-active{
+  background-color: #218838;
+  color: white;
+}
+.AccountsPage .btn.btn-inactive{
+  background-color: red;
+  color: white;
+}
+.AccountsPage tbody .audio{
+  width: 100%;
+  display: block;
+}
+
+.AccountsPage tbody tr .audio-row{
+  border-top: 0;
+}
+
+
+/* Hết quản lý người dùng */
