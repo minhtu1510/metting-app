@@ -144,6 +144,7 @@
   padding: 8px 10px;
   font-weight: 500;
   border-radius: 8px;
+  cursor: pointer;
 }
 
 .workSpace .workSpace_header--mergeFile i {
@@ -153,6 +154,7 @@
 .workSpace .workSpace_header--refresh {
   border: 0;
   background-color: white;
+  cursor: pointer;
 }
 
 .workSpace .workSpace_header--refresh i {
@@ -855,3 +857,299 @@ td {
 }
 
 /* Hết đăng nhập */
+
+
+/* Quản lý người dùng */
+.AccountsPage {
+  display: flex;
+  justify-content: space-between;
+  /* gap: 20px; */
+  border-right: 1px solid #dddd;
+}
+
+.AccountsPage .AccountsPage__header {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.AccountsPage .AccountsPage__listAudio {
+  width: 70%;
+}
+
+.AccountsPage .AccountsPage__header--Title_Filter {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.AccountsPage .AccountsPage__header--Title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.AccountsPage .AccountsPage__header--Filter {
+  color: #2563EB;
+  border: 1px solid #2563EB;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.AccountsPage .AccountsPage__header--Filter i {
+  font-size: 14px;
+}
+
+.AccountsPage .AccountsPage__header--AddAccount {
+  border: 1px solid #dddddd;
+  padding: 8px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.AccountsPage .AccountsPage__header--AddAccount:hover {
+  background-color: #2563EB;
+  color: white;
+}
+
+.AccountsPage .AccountsPage__search {
+  position: relative;
+}
+
+.AccountsPage .AccountsPage__search input {
+
+  width: 97%;
+  padding: 6px;
+  border: 1px solid #dddd;
+  border-radius: 6px;
+}
+
+.AccountsPage .AccountsPage__search i {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  color: #7a7272dd;
+  cursor: pointer;
+}
+
+.AccountsPage .AccountsPage__content table {
+  padding: 10px;
+  width: 100%;
+}
+
+.AccountsPage .AccountsPage__content table tr,
+th,
+td {
+  padding: 6px;
+}
+
+.AccountsPage .AccountsPage__content table tr {
+  border-bottom: 1px solid #dddd;
+
+}
+
+.AccountsPage .AccountsPage__content table tr,
+td {
+  text-align: center;
+}
+
+.AccountsPage table {
+  border-collapse: collapse;
+}
+
+.AccountsPage table tbody tr:hover {
+  background-color: #EFF6FF;
+  cursor: pointer;
+
+
+}
+
+.AccountsPage table tbody tr:hover .play-btn {
+  display: inline;
+
+}
+
+.AccountsPage table tbody .play-btn {
+  display: none;
+  background-color: #E5E5E5;
+  color: black;
+  border: none;
+  padding: 4px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 10px;
+}
+
+.AccountsPage .btn {
+  border: 0;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 5px;
+  padding: 5px;
+}
+
+.AccountsPage .btn.btn-edit {
+  background-color: #EBAD3E;
+  color: white;
+}
+
+.AccountsPage .btn.btn-delete {
+  background-color: #DE575E;
+  color: white;
+}
+
+.AccountsPage .btn.btn-active {
+  background-color: #218838;
+  color: white;
+}
+
+.AccountsPage .btn.btn-inactive {
+  background-color: red;
+  color: white;
+}
+
+.AccountsPage tbody .audio {
+  width: 100%;
+  display: block;
+}
+
+.AccountsPage tbody tr .audio-row {
+  border-top: 0;
+}
+
+
+/* Hết quản lý người dùng */
+
+/* Chi tiết cuộc họp */
+
+
+.detail-meeting .container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+}
+
+.detail-meeting .info-item {
+  margin-bottom: 15px;
+}
+
+.detail-meeting .info-label {
+  font-weight: bold;
+}
+
+.detail-meeting .recordings {
+  margin-top: 20px;
+}
+
+.detail-meeting .recording-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #e9ecef;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.detail-meeting .timer {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.detail-meeting button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.detail-meeting button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.detail-meeting .file-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.detail-meeting .search-input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.detail-meeting .delete-button,
+.detail-meeting .download-button {
+  padding: 8px 12px;
+  margin-top: 5px;
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.detail-meeting .download-button {
+  background-color: #17a2b8;
+}
+
+.detail-meeting #recordings-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.detail-meeting #overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  z-index: 999;
+}
+
+.detail-meeting .modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.detail-meeting .close-button {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* hết chi tiết cuộc họp */

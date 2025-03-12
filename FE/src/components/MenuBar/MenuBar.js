@@ -11,7 +11,7 @@ export const MenuBar = () => {
                         </div>
                         <div className="MenuBar__infoUser--name">
                             <div className="MenuBar__infoUser--name--fullname">Thao Linh</div>
-                            <div className="MenuBar__infoUser--name--gmail">thaolinh@gmail.com</div>
+                            <div className="MenuBar__infoUser--name--gmail">Thư ký tiểu đoàn</div>
                         </div>
                         <div className="MenuBar__infoUser--setting">
 
@@ -31,10 +31,20 @@ export const MenuBar = () => {
        
                         </li>
                         <li>
-                            <NavLink to="/user"> <i class="fa-solid fa-user"></i> Quản lý người dùng</NavLink>
+                            <NavLink to="/user"> <i class="fa-solid fa-user"></i> Quản lý thành viên</NavLink>
                         </li>
                         <li>
                             <NavLink to="/word"><i class="fa-solid fa-note-sticky"></i> Quản lý văn bản</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/accounts"><i class="fa-solid fa-circle-user"></i> Quản lý tài khoản</NavLink>
+       
+                        </li>
+                        <li>
+                            <NavLink to="/workspace"><i class="fa-solid fa-user-tie"></i> Phân quyền</NavLink>
+                        </li>
+                        <li>
+                            <NavLink to="/roles"><i class="fa-solid fa-people-group"></i> Nhóm quyền</NavLink>
                         </li>
                     </ul>
                 </nav>
