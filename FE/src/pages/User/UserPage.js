@@ -1,38 +1,19 @@
 import fileRecord from "../../assets/images/files-record.jpg"
 import fileUpload from "../../assets/images/files-upload.jpg"
 import {Link } from "react-router-dom"
-import React from "react"
+import React, { useState } from "react"
 // import imageUpload from "../../assets/images/image_upload.jpg"
-// import recordImg from "../../assets/images/microphone-only.svg"
+import recordAudio from "../../assets/Audios/audio_demo.mp3"
+import recordAudio2 from "../../assets/Audios/audio_demo_2.mp3"
 export const UserPage = () => {
-    // const handleClickUpload = () => {
-    //     const body = document.querySelector("body");
-    //     const elementRecord = document.createElement("div")
-    //     elementRecord.classList.add("modal")
-    //     elementRecord.innerHTML = `
-    //     <div class="modal-main">
-    //         <div class="modal-close"><i class="fa-solid fa-xmark"></i></div>
-    //                 <div class="modal-content">
-    //                     <div class="modal-upload">
-    //                         <img src="../../assets/images/image_upload.jpg"/>
-    //                         <div>Duyệt tệp</div>
-    //                     </div>
-    //                 </div>
-    //             </div>
-
-    //         </div>
-    //     <div class="modal-overlay"></div>
-    //     `
-    //     body.appendChild(elementRecord);
-    //     // closeModal(elementRecord);
-    //     const modalButtonAgree = document.querySelector(".button-agree");
-    //     modalButtonAgree.addEventListener("click", () =>{
-    //         // remove(ref(db, '/todoApp/' + id));
-    //         // alertFunc("Xóa thành công",3000,"alert--success");
-    //         alert("xóa thành công")
-    //         body.removeChild(elementRecord);
-    //     })
-    // }
+    const [visitableRow, setvisitableRow] = useState(null)
+    const data = [
+        { id: 1, name: 'Nguyễn Văn A', date: '12/12/2025', rank: 'Thượng úy', position: 'Chủ nhiệm chính trị', audio: recordAudio },
+        { id: 2, name: 'Nguyễn Văn B', date: '01/01/2026', rank: 'Thiếu tá', position: 'Trưởng phòng nhân sự', audio: recordAudio2 }
+    ];
+    const toggleAudio = (id) => {
+        setvisitableRow(visitableRow === id ? null: id)
+    }
     return (
         <>
             <div className="FileAudio">
@@ -65,30 +46,37 @@ export const UserPage = () => {
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <React.Fragment>
-                                        <tr>
-                                            <td><button class="play-btn">▶</button><input type="checkbox"/></td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>12/12/2025</td>
-                                            <td>Thượng úy</td>
-                                            <td>Chủ nhiệm chính trị</td>
-                                            <td>
-                                                <button class= "btn btn-edit">Sửa</button>
-                                                <button class= "btn btn-delete">Xóa</button>
-                                            </td>
-                                            <tr>
-                                                <td colSpan="6" className="audio-row">
-                                                    <audio controls autoPlay className="audio">
-                                                        <source src="" type="audio/mp3" />
-                                                        Trình duyệt không hỗ trợ audio
-                                                    </audio>
+                                    {data.map((item) => (
+                                        <React.Fragment key={item.id}>
+                                            <tr onClick={() => toggleAudio(item.id)}>
+                                                <td><input type="checkbox"/></td>
+                                                <td>{item.name}</td>
+                                                <td>{item.date}</td>
+                                                <td>{item.rank}</td>
+                                                <td>{item.position}</td>
+                                                <td>
+                                                    <button class= "btn btn-edit">Sửa</button>
+                                                    <button class= "btn btn-delete">Xóa</button>
                                                 </td>
-                                            </tr>
-                                        </tr>
-                                    </React.Fragment>
 
+                                            </tr>
+                                            {visitableRow === item.id && (
+                                                <tr className="audioBox" >
+                                                    <td colSpan="6" className="audio-row">
+                                                        <audio controls className="audio">
+                                                            <source src={item.audio} type="audio/mp3" />
+                                                            Trình duyệt không hỗ trợ audio
+                                                        </audio>
+                                                    </td>
+                                                </tr>
+                                            )
+                                            }
+
+                                            </React.Fragment>
+                                    ))}
                                 </tbody>
                             </table>
+
                         </div>
                     
                 </div>
