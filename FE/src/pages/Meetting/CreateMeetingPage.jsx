@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const CreatePage = () => {
+export const CreateMeetingPage = () => {
     const [numMembers, setNumMembers] = useState(0); // State lưu số lượng thành viên
 
     // Hàm cập nhật số lượng thành viên
