@@ -90,6 +90,7 @@ export const DetailMeetingPage = () => {
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="search-input"
               />
+              
               <div className="recordings">
                 {filteredRecordings.map((recording, index) => (
                   <div key={index} className="recording-item">
