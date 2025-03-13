@@ -1152,4 +1152,63 @@ td {
   cursor: pointer;
 }
 
+.detail-meeting .modal-content--title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.detail-meeting .btn-merge-file {
+  background-color: #007bff;
+  padding: 6px 15px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+tr {
+  cursor: pointer;
+}
+
+td .audio {
+  width: 100%;
+}
+
 /* hết chi tiết cuộc họp */
+/*phan quyen*/
+.decentralization .updateRole {
+  background-color: #007bff;
+  padding: 6px 15px;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+
+}
+
+.decentralization tr,
+th,
+td {
+  border-bottom: 1px solid #dddd;
+}
+
+.decentralization td {
+  color: #554d4d;
+}
+
+.decentralization table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* .decentralization .detailTopic {
+  display: none;
+} */
+.decentralization .tdTitle {
+  color: black;
+  font-weight: 700;
+}
+
+/*het phan quyen*/
