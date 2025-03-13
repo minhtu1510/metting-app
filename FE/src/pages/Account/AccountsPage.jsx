@@ -1,6 +1,6 @@
-import fileRecord from "../../assets/images/files-record.jpg"
-import fileUpload from "../../assets/images/files-upload.jpg"
-import {Link } from "react-router-dom"
+// import fileRecord from "../../assets/images/files-record.jpg"
+// import fileUpload from "../../assets/images/files-upload.jpg"
+// import {Link } from "react-router-dom"
 import React from "react"
 // import imageUpload from "../../assets/images/image_upload.jpg"
 // import recordImg from "../../assets/images/microphone-only.svg"
@@ -38,55 +38,55 @@ export const AccountsPage = () => {
             <div className="AccountsPage">
                 <div className="AccountsPage__listAudio">
                     <div className="AccountsPage__header">
-                            <div className="AccountsPage__header--Title_Filter"> 
-                            <div className="AccountsPage__header--Title"><b>Quản lý tài khoản</b></div>  
-                            </div>
-                            <div className="AccountsPage__header--AddAccount"> 
-                                <i class="fa-solid fa-plus"></i> Thêm tài khoản
-                            </div>
-                            
-                    </div> 
-                        <div className="AccountsPage__search">
-                            <input type="text" placeholder="Tìm kiếm File tên"/>
-                            <i class="fa-solid fa-magnifying-glass"></i>
+                        <div className="AccountsPage__header--Title_Filter">
+                            <div className="AccountsPage__header--Title"><b>Quản lý tài khoản</b></div>
                         </div>
-                        <div className="AccountsPage__content">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th><input type="checkbox"/></th>
-                                        <th>Tên</th>
-                                        <th>Tạo</th>
-                                        <th>Tên đăng nhập</th>
-                                        <th>Mật khẩu</th>
-                                        <th>Tình trạng</th>
-                                        <th>
-                                            Tác vụ
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <React.Fragment>
-                                        <tr>
-                                        <td><input type="checkbox"/></td>
-                                            <td>Nguyễn Văn A</td>
-                                            <td>12/12/2025</td>
-                                            <td>a@gmail.com</td>
-                                            <td>12345</td>
-                                            <td><button class="btn btn-active">Hoạt động</button></td>
-                                            <td>
-                                                <button class= "btn btn-edit">Sửa</button>
-                                                <button class= "btn btn-delete">Xóa</button>
-                                            </td>
-                                        </tr>
-                                    </React.Fragment>
+                        <div className="AccountsPage__header--AddAccount">
+                            <i class="fa-solid fa-plus"></i> Thêm tài khoản
+                        </div>
 
-                                </tbody>
-                            </table>
-                        </div>
-                    
+                    </div>
+                    <div className="AccountsPage__search">
+                        <input type="text" placeholder="Tìm kiếm File tên" />
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div className="AccountsPage__content">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th><input type="checkbox" /></th>
+                                    <th>Tên</th>
+                                    <th>Tạo</th>
+                                    <th>Tên đăng nhập</th>
+                                    <th>Mật khẩu</th>
+                                    <th>Tình trạng</th>
+                                    <th>
+                                        Tác vụ
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <React.Fragment>
+                                    <tr>
+                                        <td><input type="checkbox" /></td>
+                                        <td>Nguyễn Văn A</td>
+                                        <td>12/12/2025</td>
+                                        <td>a@gmail.com</td>
+                                        <td>12345</td>
+                                        <td><button class="btn btn-active">Hoạt động</button></td>
+                                        <td>
+                                            <button class="btn btn-edit">Sửa</button>
+                                            <button class="btn btn-delete">Xóa</button>
+                                        </td>
+                                    </tr>
+                                </React.Fragment>
+
+                            </tbody>
+                        </table>
+                    </div>
+
                 </div>
-               </div>
+            </div>
         </>
     )
 }
