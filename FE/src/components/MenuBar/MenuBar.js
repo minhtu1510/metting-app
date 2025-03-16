@@ -41,7 +41,7 @@ export const MenuBar = () => {
        
                         </li>
                         <li>
-                            <NavLink to="/workspace"><i class="fa-solid fa-user-tie"></i> Phân quyền</NavLink>
+                            <NavLink to="/roles/permissions"><i class="fa-solid fa-user-tie"></i> Phân quyền</NavLink>
                         </li>
                         <li>
                             <NavLink to="/roles"><i class="fa-solid fa-people-group"></i> Nhóm quyền</NavLink>

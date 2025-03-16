@@ -8,7 +8,7 @@ import {RecordPage } from './pages/Record/RecordPage.js';
 import { WordPage } from './pages/Word/WordPage.js';
 import { LoginPage } from './pages/Auth/LoginPage.jsx';
 import { RolesPage } from './pages//Roles/RolesPage.jsx';
-import { DivisionRolePage } from './pages/Roles/divisionRolePage.jsx';
+import { PermissionsPage } from './pages/Roles/PermissionsPage.jsx';
 import { AccountsPage } from './pages/Account/AccountsPage.jsx';
 import { DetailMeetingPage } from './pages/Meetting/DetailMeetingPage.jsx';
 // import { CreatePage } from './pages/Meetting/Create.jsx';
@@ -31,7 +31,7 @@ function App() {
           <Route path='/roles' element={<RolesPage/>} />
           <Route path='/accounts' element={<AccountsPage/>} />
           <Route path='/meeting/detail' element={<DetailMeetingPage/>} />
-          <Route path='/roleDivision' element={<DivisionRolePage/>}/>
+          <Route path='/roles/permissions' element={<PermissionsPage/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export const DivisionRolePage = () => {
+export const PermissionsPage = () => {
     const [isModalTopicOpen, setIsModalTopiclOpen] = useState(false)
     const [isModalMainOpen, setIsModalMainlOpen] = useState(false)
     const [isModalSingerOpen, setIsModalSingerOpen] = useState(false)

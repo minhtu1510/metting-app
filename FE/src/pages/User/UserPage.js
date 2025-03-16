@@ -20,7 +20,7 @@ export const UserPage = () => {
                 <div className="FileAudio__listAudio">
                     <div className="FileAudio__header">
                             <div className="FileAudio__header--Title_Filter"> 
-                            <div className="FileAudio__header--Title">Tệp gần đây</div>  
+                            <div className="FileAudio__header--Title">Quản lý mẫu giọng thành viên</div>  
                             </div>
                             <div className="FileAudio__header--AddFolder"> 
                                 <i class="fa-solid fa-plus"></i> Thêm thư mục
@@ -80,17 +80,7 @@ export const UserPage = () => {
                         </div>
                     
                 </div>
-                <div className="FileAudio__record">
-                    <Link to="/Record" className="FileAudio__record__item FileAudio__record--onl">
-                        <div className="FileAudio__record--title">Ghi âm & Phiên âm</div>                  
-                        <img src={fileRecord} alt="anh"/> 
-                    </Link>
-                    <Link to="/Upload" className="FileAudio__record__item FileAudio__record--addFile" >
-                        <div className="FileAudio__record--title">Phiên âm tệp âm thanh</div>                  
-                        <img src={fileUpload} alt="anh"/> 
-                    </Link>
-                      
-                </div>
+
                </div>
         </>
     )

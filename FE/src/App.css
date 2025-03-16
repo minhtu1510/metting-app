@@ -937,7 +937,7 @@ td {
 
 .AccountsPage .AccountsPage__content table {
   padding: 10px;
-  width: 100%;
+  width: auto;
 }
 
 .AccountsPage .AccountsPage__content table tr,
@@ -951,9 +951,11 @@ td {
 
 }
 
-.AccountsPage .AccountsPage__content table tr,
-td {
-  text-align: center;
+.AccountsPage .AccountsPage__content table tr td {
+  text-align:center;
+  text-wrap: normal;
+  white-space: nowrap;
+  
 }
 
 .AccountsPage table {
@@ -1208,6 +1210,7 @@ td .audio {
   padding: 10px;
   border: 1px solid #dddd;
   border-radius: 6px;
+  outline: none;
 }
 
 .detail-meeting .search_file i {

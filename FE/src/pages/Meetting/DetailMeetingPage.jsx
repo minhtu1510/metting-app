@@ -108,20 +108,13 @@ export const DetailMeetingPage = () => {
     <div className="detail-meeting container">
       <button className="file-button" onClick={() => setShowModal(true)}>File ghi âm</button>
       <h2 className="text-xl font-bold mb-4">Chi Tiết Cuộc Họp</h2>
-      <div className='search_merge_file'>
-        <div className='search_file'>
-          <input type='text'></input>
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-        <div className='search_merge_file'>
-          <div className='merge_file'>
-            Gộp file
-          </div>
-          <div className='refresh_file' >
-            <i class="fa-solid fa-arrows-rotate"></i>
-          </div>
-        </div>
-      </div>
+      <div className="mb-2"><strong>Tên cuộc họp:</strong> Cuộc họp ABC</div>
+      <div className="mb-2"><strong>Chủ tọa:</strong> Nguyễn Văn A</div>
+      <div className="mb-2"><strong>Số lượng thành viên:</strong> 10</div>
+      <div className="mb-2"><strong>Địa điểm:</strong> Phòng họp 101</div>
+      <div className="mb-2"><strong>Ngày:</strong> 12/03/2025</div>
+      <div className="mb-2"><strong>Thời gian:</strong> 09:00 AM</div>
+      <div className="mb-2"><strong>Mô tả:</strong> Cuộc họp thảo luận về kế hoạch kinh doanh.</div>
       <h3 className="mt-4 mb-2 font-bold">Ghi Âm</h3>
 
       <div className="form-group">
@@ -133,6 +126,20 @@ export const DetailMeetingPage = () => {
       {showModal && (
         <div className="detail-meeting overlay">
           <div className="modal-content">
+          <div className='search_merge_file'>
+        <div className='search_file'>
+          <input type='text' placeholder='Tìm kiếm'></input>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+        <div className='search_merge_file'>
+          <div className='merge_file'>
+            Gộp file
+          </div>
+          <div className='refresh_file' >
+            <i class="fa-solid fa-arrows-rotate"></i>
+          </div>
+        </div>
+      </div>
             <h3>Danh sách file ghi âm</h3>
 
             <div className="FileAudio__content">
