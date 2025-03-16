@@ -4,7 +4,6 @@ import { DefaultLayout } from './layouts/DefaultLayout';
 // import { HomePage } from './pages/Home/HomePage';
 import { WorkspacePage } from './pages/Meetting/WorkspacePage.jsx';
 import {UserPage } from './pages/User/UserPage.js';
-import {RecordPage } from './pages/Record/RecordPage.js';
 import { WordPage } from './pages/Word/WordPage.js';
 import { LoginPage } from './pages/Auth/LoginPage.jsx';
 import { RolesPage } from './pages//Roles/RolesPage.jsx';
@@ -25,7 +24,6 @@ function App() {
           <Route path='/workspace' element={<WorkspacePage/>} />
           {/* <Route path='/workspace' element={<WorkspacePage/>} /> */}
           <Route path='/user' element={<UserPage/>} />
-          <Route path='/Record' element={<RecordPage/>} />
           <Route path='/word' element={<WordPage/>} />
           <Route path='/meeting/create' element={<CreateMeetingPage/>} />
           <Route path='/roles' element={<RolesPage/>} />
