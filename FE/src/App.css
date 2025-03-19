@@ -294,6 +294,14 @@
   background-color: #2563EB;
   color: white;
 }
+.FileAudio .FileAudio__header--AddFolder:hover a{
+  
+  color: white;
+}
+.FileAudio .FileAudio__header--AddFolder a{
+  text-decoration: none;
+}
+
 
 .FileAudio .FileAudio__search {
   position: relative;

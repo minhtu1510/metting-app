@@ -21,14 +21,17 @@ export const WorkspacePage = () => {
 
     return (
         <>
-            <div className="workSpace">
+            <div className="FileAudio">
                 <div className="FileAudio__listAudio">
                     <div className="FileAudio__header">
                         <div className="FileAudio__header--Title_Filter">
                             <div className="FileAudio__header--Title">Quản lý cuộc họp</div>
                         </div>
                         <div className="FileAudio__header--AddFolder">
-                            <i className="fa-solid fa-plus"></i> Thêm thư mục
+                            <a href="/meeting/create" className="btn btn-addFolder">
+                                <i className="fa-solid fa-plus"></i> Thêm cuộc họp
+                            </a>
+                            
                         </div>
                     </div>
                     <div className="FileAudio__search">
