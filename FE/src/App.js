@@ -5,7 +5,7 @@ import { DefaultLayout } from './layouts/DefaultLayout';
 import { WorkspacePage } from './pages/Meetting/WorkspacePage.jsx';
 import {UserPage } from './pages/User/UserPage.js';
 import { WordPage } from './pages/Word/WordPage.js';
-import { LoginPage } from './pages/Auth/LoginPage.jsx';
+import  LoginPage  from './pages/Auth/LoginPage.jsx';
 import { RolesPage } from './pages//Roles/RolesPage.jsx';
 import { PermissionsPage } from './pages/Roles/PermissionsPage.jsx';
 import { AccountsPage } from './pages/Account/AccountsPage.jsx';
