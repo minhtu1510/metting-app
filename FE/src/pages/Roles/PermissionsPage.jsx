@@ -52,7 +52,7 @@ export const PermissionsPage = () => {
                         }
 
                         <tr>
-                            <td onClick={handlemanagertopic} className="tdTitle">Quản lý chủ đề</td>
+                            <td onClick={handlemanagertopic} className="tdTitle">Quản lý cuộc họp</td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -83,7 +83,7 @@ export const PermissionsPage = () => {
 
                         }
                         <tr>
-                            <td className="tdTitle" onClick={() => handlemanagersing()}>Quản lý bài hát</td>
+                            <td className="tdTitle" onClick={() => handlemanagersing()}>Quản lý thành viên</td>
                             <td></td>
                             <td></td>
                         </tr>
@@ -114,7 +114,7 @@ export const PermissionsPage = () => {
 
                         }
                         <tr>
-                            <td className="tdTitle" onClick={() => handlemanagersinger()}>Quản lý ca sĩ</td>
+                            <td className="tdTitle" onClick={() => handlemanagersinger()}>Quản lý văn bản</td>
                             <td></td>
                             <td></td>
                         </tr>

@@ -501,6 +501,7 @@ td {
   border: 1px solid #dddd;
   border-radius: 5px;
   font-size: 20px;
+  outline-style: none;
 }
 
 .form .form-group button {
@@ -511,6 +512,7 @@ td {
   margin-top: 20px;
   background-color: #2A579A;
   color: white;
+  cursor: pointer;
 }
 
 .form .form-group button:hover {
