@@ -34,17 +34,8 @@ export const MenuBar = () => {
                             <NavLink to="/user"> <i class="fa-solid fa-user"></i> Quản lý thành viên</NavLink>
                         </li>
                         <li>
-                            <NavLink to="/word"><i class="fa-solid fa-note-sticky"></i> Quản lý văn bản</NavLink>
-                        </li>
-                        <li>
                             <NavLink to="/accounts"><i class="fa-solid fa-circle-user"></i> Quản lý tài khoản</NavLink>
        
-                        </li>
-                        <li>
-                            <NavLink to="/roles/permissions"><i class="fa-solid fa-user-tie"></i> Phân quyền</NavLink>
-                        </li>
-                        <li>
-                            <NavLink to="/roles"><i class="fa-solid fa-people-group"></i> Nhóm quyền</NavLink>
                         </li>
                     </ul>
                 </nav>
