@@ -1,7 +1,10 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { MicVAD } from "@ricky0123/vad-web";
+import { useParams, useNavigate } from "react-router-dom";
 
 export const DetailMeetingPage = () => {
+  const { meetingId } = useParams(); // Lấy meetingId từ URL
+  const navigate = useNavigate(); // Để điều hướng khi có lỗi
   const [recordings, setRecordings] = useState([]);
   const [isRecording, setIsRecording] = useState(false);
   const [timer, setTimer] = useState('00:00');
@@ -16,7 +19,92 @@ export const DetailMeetingPage = () => {
   const audioBufferRef = useRef([]);
   const overlapDuration = 1; // 1 giây overlap
 
-  // Hàm chuyển Float32Array thành WAV Blob
+  // State để lưu thông tin cuộc họp và danh sách thành viên
+  const [meeting, setMeeting] = useState(null);
+  const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
+
+  // Lấy danh sách thành viên để ánh xạ username và id
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          navigate('/login');
+          return;
+        }
+        const response = await fetch("http://localhost:8000/api/users/", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          if (response.status === 401) {
+            localStorage.removeItem('token');
+            navigate('/login');
+            return;
+          }
+          throw new Error("Không thể lấy danh sách thành viên");
+        }
+        const data = await response.json();
+        setUsers(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+    fetchUsers();
+  }, [navigate]);
+
+  // Lấy thông tin cuộc họp
+  useEffect(() => {
+    const fetchMeeting = async () => {
+      try {
+        const token = localStorage.getItem("token");
+        if (!token) {
+          navigate('/login');
+          return;
+        }
+        const response = await fetch(`http://localhost:8000/api/meetings/${meetingId}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        if (!response.ok) {
+          if (response.status === 401) {
+            localStorage.removeItem('token');
+            navigate('/login');
+            return;
+          }
+          throw new Error("Không thể lấy thông tin cuộc họp");
+        }
+        const data = await response.json();
+        setMeeting(data);
+      } catch (err) {
+        setError(err.message);
+      }
+    };
+    fetchMeeting();
+  }, [meetingId, navigate]);
+
+  // Hàm để lấy tên đầy đủ từ ID hoặc username
+  const getUserName = (idOrUsername, type = 'id') => {
+    const user = users.find((user) => 
+      type === 'id' ? user.id === idOrUsername : user.username === idOrUsername
+    );
+    return user ? user.full_name : "Không xác định";
+  };
+
+  // Hàm để định dạng ngày và giờ từ start_time hoặc created_at
+  const formatDateTime = (dateTime) => {
+    if (!dateTime) return { date: "Chưa xác định", time: "Chưa xác định" };
+    const date = new Date(dateTime);
+    return {
+      date: date.toLocaleDateString('vi-VN'),
+      time: date.toLocaleTimeString('vi-VN'),
+    };
+  };
+
+  // Logic ghi âm (giữ nguyên hoàn toàn)
   const float32ToWavBlob = (float32Array, sampleRate) => {
     const buffer = new ArrayBuffer(44 + float32Array.length * 2);
     const view = new DataView(buffer);
@@ -76,7 +164,7 @@ export const DetailMeetingPage = () => {
     }
 
     segmentCountRef.current += 1;
-    const blob = float32ToWavBlob(audio, 16000); // Chuyển Float32Array thành WAV
+    const blob = float32ToWavBlob(audio, 16000);
     const filename = `Segment_${segmentCountRef.current}_${Date.now()}.wav`;
     await saveRecording(blob, filename);
 
@@ -106,8 +194,8 @@ export const DetailMeetingPage = () => {
       streamRef.current = await navigator.mediaDevices.getUserMedia({ audio: true });
       const audioContext = new AudioContext();
       const source = audioContext.createMediaStreamSource(streamRef.current);
-      const overlapDuration = 1; // 1 giây overlap
-      const segmentDuration = 5; // 5 giây mỗi đoạn
+      const overlapDuration = 1;
+      const segmentDuration = 5;
   
       vadRef.current = await MicVAD.new({
         source,
@@ -125,25 +213,23 @@ export const DetailMeetingPage = () => {
           }
   
           const sampleRate = 16000;
-          const totalDuration = audio.length / sampleRate; // Thời gian tổng (giây)
+          const totalDuration = audio.length / sampleRate;
           const overlapSamples = overlapDuration * sampleRate;
           const segmentSamples = segmentDuration * sampleRate;
   
           if (totalDuration <= segmentDuration) {
-            // Nếu dưới hoặc bằng 5 giây, lưu nguyên đoạn
             saveSegment(audio);
           } else {
-            // Nếu trên 5 giây, cắt thành các đoạn với overlap
             let startIndex = 0;
             while (startIndex < audio.length) {
               const endIndex = Math.min(startIndex + segmentSamples + overlapSamples, audio.length);
               const segment = audio.slice(startIndex, endIndex);
   
               if (segment.length > 0) {
-                saveSegment(segment, startIndex > 0); // isPartial = true nếu không phải đoạn đầu
+                saveSegment(segment, startIndex > 0);
               }
   
-              startIndex += segmentSamples; // Chuyển sang đoạn tiếp theo, bỏ qua overlap
+              startIndex += segmentSamples;
             }
           }
   
@@ -162,6 +248,7 @@ export const DetailMeetingPage = () => {
       setIsRecording(false);
     }
   };
+
   const stopRecording = async () => {
     if (!isRecording) return;
 
@@ -171,7 +258,7 @@ export const DetailMeetingPage = () => {
     timerRef.current = null;
 
     if (vadRef.current) {
-      vadRef.current.pause(); // Tạm dừng VAD
+      vadRef.current.pause();
     }
 
     if (streamRef.current) {
@@ -224,17 +311,33 @@ export const DetailMeetingPage = () => {
     setVisitableRow(visitableRow === id ? null : id);
   };
 
+  if (!meeting) {
+    return <div>Đang tải...</div>;
+  }
+
+  // Định dạng ngày và giờ
+  const { date, time } = formatDateTime(meeting.start_time || meeting.created_at);
+
   return (
     <div className="detail-meeting container">
       <button className="file-button" onClick={() => setShowModal(true)}>File ghi âm</button>
       <h2 className="text-xl font-bold mb-4">Chi Tiết Cuộc Họp</h2>
-      <div className="mb-2"><strong>Tên cuộc họp:</strong> Cuộc họp ABC</div>
-      <div className="mb-2"><strong>Chủ tọa:</strong> Nguyễn Văn A</div>
-      <div className="mb-2"><strong>Số lượng thành viên:</strong> 10</div>
-      <div className="mb-2"><strong>Địa điểm:</strong> Phòng họp 101</div>
-      <div className="mb-2"><strong>Ngày:</strong> 12/03/2025</div>
-      <div className="mb-2"><strong>Thời gian:</strong> 09:00 AM</div>
-      <div className="mb-2"><strong>Mô tả:</strong> Cuộc họp thảo luận về kế hoạch kinh doanh.</div>
+      {error && <div className="error-message">{error}</div>}
+      <div className="mb-2"><strong>Tên cuộc họp:</strong> {meeting.title}</div>
+      <div className="mb-2"><strong>Chủ tọa:</strong> {getUserName(meeting.created_by, 'id')}</div>
+      <div className="mb-2"><strong>Số lượng thành viên:</strong> {meeting.participants.length}</div>
+      <div className="mb-2">
+        <strong>Danh sách thành viên:</strong>
+        <ul>
+          {meeting.participants.map((username, index) => (
+            <li key={index}>{getUserName(username, 'username')}</li>
+          ))}
+        </ul>
+      </div>
+      <div className="mb-2"><strong>Địa điểm:</strong> {meeting.address || "Chưa xác định"}</div>
+      <div className="mb-2"><strong>Ngày:</strong> {date}</div>
+      <div className="mb-2"><strong>Thời gian:</strong> {time}</div>
+      <div className="mb-2"><strong>Mô tả:</strong> {meeting.description || "Không có mô tả"}</div>
       <h3 className="mt-4 mb-2 font-bold">Ghi Âm</h3>
 
       <div className="form-group">
@@ -315,6 +418,16 @@ export const DetailMeetingPage = () => {
           </div>
         </div>
       )}
+      <div className="meeting-content">
+        <h2 className="inner-title">Nội dung cuộc họp</h2>
+        <div className="inner-button">
+          <button className="inner-xuat">Xuất nội dung</button>
+          <div className="inner-icon-download">
+            <i className="fa-solid fa-download"></i>
+          </div>
+        </div>
+        <textarea name="" id="" disabled></textarea>
+      </div>
     </div>
   );
 };

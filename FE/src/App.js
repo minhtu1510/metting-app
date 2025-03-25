@@ -11,6 +11,8 @@ import { DetailMeetingPage } from './pages/Meetting/DetailMeetingPage.jsx';
 // import { CreatePage } from './pages/Meetting/Create.jsx';
 
 import { CreateMeetingPage } from './pages/Meetting/CreateMeetingPage.jsx';
+import { EditMeetingPage } from './pages/Meetting/EditMeetingPage.jsx';
+import { ProfilePage } from './pages/Profile/ProfilePage.jsx';
 function App() {
   return (
     <>
@@ -19,13 +21,15 @@ function App() {
         <Route path='/' element={<LoginPage/>} />
         <Route path='/login' element={<LoginPage/>} />
         <Route element={<DefaultLayout/>}>
-          <Route path='/workspace' element={<WorkspacePage/>} />
+          <Route path='/meeting' element={<WorkspacePage/>} />
           {/* <Route path='/workspace' element={<WorkspacePage/>} /> */}
           <Route path='/user' element={<UserPage/>} />
           <Route path='/word' element={<WordPage/>} />
           <Route path='/meeting/create' element={<CreateMeetingPage/>} />
+          <Route path='/meeting/edit/:meetingId' element={<EditMeetingPage/>} />
           <Route path='/accounts' element={<AccountsPage/>} />
-          <Route path='/meeting/detail' element={<DetailMeetingPage/>} />
+          <Route path='/meeting/detail/:meetingId' element={<DetailMeetingPage/>} />
+          <Route path='/profile' element={<ProfilePage/>} />
         </Route>
       </Routes>
     </BrowserRouter>

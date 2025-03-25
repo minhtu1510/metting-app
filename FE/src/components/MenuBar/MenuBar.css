@@ -1,0 +1,78 @@
+/* src/Menubar.css */
+
+/* Container chính của menubar */
+.Menubar {
+    width: 100%;
+    height: 60px;
+    background-color: #1a252f; /* Màu nền tối để nổi bật */
+    color: #ecf0f1; /* Màu chữ sáng để tương phản */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Thêm bóng để tạo chiều sâu */
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+/* Logo hoặc tiêu đề của menubar */
+.Menubar__logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #3498db; /* Màu logo nổi bật */
+}
+
+/* Danh sách các mục trong menubar */
+.Menubar__menu {
+    display: flex;
+    gap: 20px;
+}
+
+/* Mỗi mục trong menu */
+.Menubar__menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hiệu ứng hover cho menu item */
+.Menubar__menu-item:hover {
+    background-color: #34495e; /* Màu nền khi hover */
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Menu item đang active */
+.Menubar__menu-item.active {
+    background-color: #3498db; /* Màu nền khi active */
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+/* Icon trong menu item */
+.Menubar__menu-item i {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+/* Nút đăng xuất */
+.Menubar__logout {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #e74c3c; /* Màu đỏ để nổi bật */
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.Menubar__logout:hover {
+    background-color: #c0392b; /* Màu nền khi hover */
+    color: #fff;
+    border-radius: 5px;
+}

@@ -1038,14 +1038,32 @@ td {
 /* Chi tiết cuộc họp */
 
 
-.detail-meeting .container {
-  max-width: 600px;
+.detail-meeting.container {
+  max-width: 800px;
   margin: auto;
   padding: 20px;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: relative;
+}
+
+.detail-meeting.container .meeting-content .inner-button{
+  display: flex;
+ justify-content: end;
+ gap:10px;
+ align-items: center;
+}
+
+.detail-meeting.container .meeting-content .inner-button .inner-icon-download{
+  cursor: pointer;
+}
+
+.detail-meeting.container .meeting-content textarea{
+  width: 100%;
+  height: 400px;
+  outline-style: none;
+  margin-top: 20px;
 }
 
 .detail-meeting .info-item {

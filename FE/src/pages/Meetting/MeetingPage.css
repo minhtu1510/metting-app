@@ -1,0 +1,458 @@
+/* src/MeetingPage.css */
+
+/* Container chính của trang */
+.MeetingPage {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Danh sách cuộc họp */
+.MeetingPage__listMeetings {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Header của trang */
+.MeetingPage__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.MeetingPage__header--Title_Filter {
+    display: flex;
+    align-items: center;
+}
+
+.MeetingPage__header--Title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.MeetingPage__header--AddMeeting {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background-color 0.3s;
+}
+
+.MeetingPage__header--AddMeeting:hover {
+    background-color: #45a049;
+}
+
+/* Thanh tìm kiếm */
+.MeetingPage__search {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.MeetingPage__search input {
+    width: 100%;
+    padding: 10px 40px 10px 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.MeetingPage__search i {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+/* Nội dung bảng */
+.MeetingPage__content {
+    overflow-x: auto;
+}
+
+.MeetingPage__content table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.MeetingPage__content th,
+.MeetingPage__content td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.MeetingPage__content th {
+    background-color: #f1f1f1;
+    font-weight: bold;
+    color: #333;
+}
+
+.MeetingPage__content td {
+    color: #555;
+}
+
+.MeetingPage__content tr:hover {
+    background-color: #f5f5f5;
+}
+
+/* Nút tác vụ */
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: background-color 0.3s;
+}
+
+.btn-edit {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-edit:hover {
+    background-color: #1e88e5;
+}
+
+.btn-delete {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-delete:hover {
+    background-color: #e53935;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-main {
+    background-color: white;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+    position: relative;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #888;
+}
+
+.modal-close:hover {
+    color: #555;
+}
+
+.modal-content h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Form trong modal */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+.form-group select {
+    appearance: none;
+    background: url('data:image/svg+xml;utf8,<svg fill="black" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>') no-repeat right 10px center;
+    background-size: 12px;
+}
+
+.form-group .error {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.modal-content button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.modal-content button:hover {
+    background-color: #45a049;
+}
+
+/* Thông báo lỗi */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/* src/MeetingPage.css */
+
+/* Các style hiện có của bạn... */
+
+/* Định dạng cho select multiple */
+.form-group select[multiple] {
+    width: 100%;
+    height: 150px; /* Chiều cao của dropdown */
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    transition: border-color 0.3s;
+}
+
+.form-group select[multiple]:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-group select[multiple] option {
+    padding: 5px;
+}
+
+/* Định dạng label */
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+/* Định dạng các input khác */
+.form-group input,
+.form-group textarea,
+.form-group select:not([multiple]) {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form-group textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* src/MeetingPage.css */
+
+/* Các style hiện có của bạn... */
+
+/* Modal container */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+/* Modal overlay (nền mờ) */
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Nền mờ */
+    z-index: 1;
+}
+
+/* Modal chính */
+.modal-main {
+    position: relative;
+    width: 90%; /* Giới hạn chiều rộng tối đa */
+    max-width: 600px; /* Chiều rộng tối đa là 600px */
+    max-height: 80vh; /* Chiều cao tối đa là 80% chiều cao màn hình */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    z-index: 2;
+    overflow-y: auto; /* Thêm thanh cuộn dọc nếu nội dung vượt quá */
+    padding: 20px;
+}
+
+/* Nút đóng modal */
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #7f8c8d;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.modal-close:hover {
+    color: #e74c3c;
+}
+
+/* Nội dung modal */
+.modal-content {
+    padding: 20px;
+}
+
+.modal-content h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-align: center;
+}
+
+/* Form bên trong modal */
+.modal-content form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Định dạng form group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 5px;
+    color: #2c3e50;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.form-group textarea {
+    height: 80px; /* Giảm chiều cao textarea */
+    resize: vertical;
+}
+
+/* Định dạng select multiple cho người tham gia */
+.participants-select {
+    height: 120px; /* Giảm chiều cao dropdown */
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.participants-select option {
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Định dạng nút submit */
+.modal-content button[type="submit"] {
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-self: center;
+}
+
+.modal-content button[type="submit"]:hover {
+    background-color: #2980b9;
+}
+
+/* Định dạng thông báo lỗi */
+.error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 15px;
+}
